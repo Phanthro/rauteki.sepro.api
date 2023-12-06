@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Rauteki.Sepro.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Rauteki.Sepro.Api.Misc.Extensions.ApiVersioningExtensions">
+            <summary>
+            Configure the API versioning properties of the project.
+            </summary>
+        </member>
+        <member name="M:Rauteki.Sepro.Api.Misc.Extensions.ApiVersioningExtensions.AddApiVersioningConfigured(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure the API versioning properties of the project, such as return headers, version format, etc.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Rauteki.Sepro.Api.Misc.Extensions.SwaggerSmashBuckle">
+            <summary>
+            Configure the Swagger generator.
+            </summary>
+        </member>
+        <member name="M:Rauteki.Sepro.Api.Misc.Extensions.SwaggerSmashBuckle.AddSwaggerSwashbuckleConfigured(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure the Swagger generator with XML comments, bearer authentication, etc.
+            Additional configuration files:
+            <list type="bullet">
+                <item>ConfigureSwaggerSwashbuckleOptions.cs</item>
+            </list>
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:Rauteki.Sepro.Api.Misc.Extensions.SwaggerSmashBuckleOptions">
+            <summary>
+            Configures the Swagger generation options.
+            </summary>
+            <remarks>This allows API versioning to define a Swagger document per API version after the
+            <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider"/> service has been resolved from the service container.</remarks>
+        </member>
+        <member name="M:Rauteki.Sepro.Api.Misc.Extensions.SwaggerSmashBuckleOptions.#ctor(Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions"/> class.
+            </summary>
+            <param name="provider">The <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider">provider</see> used to generate Swagger documents.</param>
+        </member>
+        <member name="M:Rauteki.Sepro.Api.Misc.Extensions.SwaggerSmashBuckleOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
