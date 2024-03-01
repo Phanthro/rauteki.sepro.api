@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Rauteki.Sepro.Api.props" />
-</Project>

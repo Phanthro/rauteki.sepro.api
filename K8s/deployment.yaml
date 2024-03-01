@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fire-back-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fireback
+  template:
+    metadata:
+      labels:
+        app: fireback
+    spec:
+      containers:
+      - name: fireback
+        image: gcr.io/booming-pride-412719/fire-back:v1.2
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        volumeMounts:
+        - name: secrets
+          mountPath: /app/secrets
+          readOnly: true
+      volumes:
+      - name: secrets
+        secret:
+          secretName: appsettings-fire
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fireback-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: fireback
+  ports:
+  - name: fireback
+    protocol: TCP
+    port: 80
+    targetPort: 80
